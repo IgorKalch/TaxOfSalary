@@ -28,6 +28,8 @@ namespace IKalchenko.TaxOfSalary.Persistence
             foreach (var record in records)
             {
                 records.Where(x => x.Value3 != 0).FirstOrDefault(new ValueRecord(record.Value1, record.Currency1, record.Value2, record.Currency2, record.Value3, record.Currency3, record.Message));
+                records.Where(x => x.Value2 != 0).FirstOrDefault(new ValueRecord(record.Value1, record.Currency1, record.Value2, record.Currency2, record.Message));
+                records.Where(x => x.Value1 != 0).FirstOrDefault(new ValueRecord(record.Value1, record.Currency1, record.Message));
             }
             
         }           
