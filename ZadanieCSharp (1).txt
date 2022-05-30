@@ -1,0 +1,64 @@
+Tytuł: 
+Naliczanie podatku od wynagrodzeń
+
+Zadanie: 
+Napisać komponent (/-y) liczące podatek od wynagrodzenia pracownika. 
+O ile to możliwe, należy utworzyć solucję w Visual Studio. Kod liczący należy umieścic w projekcie typu "C# Class Library".
+Należy oczywiście zadbać o to, by obliczenia działały poprawnie, a kod był napisany "zgodnie ze sztuką".
+
+Algorytm jest wymyślony na potrzeby tego zadania. Trochę przypomina on mocno uproszczony polski system podatkowy.
+
+
+Opis: 
+Od każdego wynagrodzenia powinien zostać naliczony podatek dochodowy.
+W zależności od sposobu rozliczania się danego pracownika z fiskusem (jeden konkretny sposób, niezmienny w roku kalendarzowym), może to być:
+- zwolnienie z podatku
+- podatek liniowy (sztywne 19% procent od wynagrodzenia)
+- podatek progresywny:
+	- pierwsze 85528 złotych wynagrodzeń pracownika w roku kalendarzowym jest obłożone podatkiem 17%
+	- wynagrodzenia, które narastąjąco w roku przekraczają 85528 złotych obłożone są podatkiem 32%
+	- pierwsze 525,12 zł naliczonego podatku w roku kalendarzowym nie musi być płacone (pomniejszamy podatek)
+Tak wyliczony podatek zaokrągla się do pełnych złotych w dół.
+
+Scenariusz dodatkowy: Wynagrodzenie może być wypłacone w walucie obcej np 500 euro. Podatek zawsze nalicza się w złotych, więc do wynagrodzenia najpierw należy zastosować przelicznik na złotówki po kursie danej waluty z dnia wypłaty. Przeliczniki nie muszą być rzeczywiste i mogą być zawarte w kodzie źródłowym.
+Rozszerzenie scenariusza dodatkowego: Jedno wynagrodzenie może być wypłacone wielu walutach naraz, np 200 złotych + 300 euro + 250 dolarów. Jak powyżej, także należy przeliczyć wynagrodzenie na złotówki.
+
+
+Przykład:
+Pracownik rozlicza się w danym roku podatkiem progresywnym.
+Pierwsze wynagrodzenie w tym roku w wysokości 5000 złotych. Mieści się w w całości limicie 85528, więc stosuje się stawkę 17%, co daje 850 złotych. Dodatkowo pomniejszone o 525,12 złotych daje 324,88. Zaokrąglone w dól daje finalnie 324 złote.
+Kolejne wynagrodzenie w tym roku w wysokości 100000 złotych. Uwzględniając poprzednie wynagrodzenie (5000zł) wychodzi 80528zł mieszczących się w limicie 85528 (stawka 17%) i 19472zł ponad ten limit (stawka 32%). Daje to 13689,76 + 6231,04 = 19920,80. Pomniejszenie podatku o 525,12 zostało już w danym roku zastosowane, więc zostaje tylko zaokrąglić finalną wartość, co daje 19920 złotych.
+
+
+
+
+Название: 
+Расчет налога на заработную плату
+
+Задача: 
+Напишите компонент(ы), который(ые) считает(ют) налог на зарплату сотрудника. 
+Если возможно, создайте решение в Visual Studio. Расчетный код должен быть помещен в проект типа "Библиотека классов C#".
+Конечно, вы должны убедиться, что вычисления работают правильно и что код написан "в соответствии с искусством".
+
+Алгоритм придуман для решения этой задачи. Она несколько напоминает сильно упрощенную налоговую систему Польши.
+
+
+Описание: 
+Подоходный налог должен рассчитываться с каждой зарплаты.
+В зависимости от того, каким образом данный сотрудник ведет расчеты с налоговой инспекцией (один конкретный способ, неизменный в течение календарного года), это может быть
+- освобождение от налогов
+- линейный налог (жесткий процент 19% от заработной платы)
+- прогрессивный налог:
+	- первые 85528 злотых заработной платы работника в календарном году облагаются налогом в размере 17%
+	- зарплаты, превышающие 85528 злотых в совокупности за год, облагаются 32% налогом
+	- первые 525,12 злотых начисленного налога в календарном году не нужно платить (мы уменьшаем налог)
+Налог, рассчитанный таким образом, округляется до полного злотого в меньшую сторону.
+
+Дополнительный сценарий: Зарплата может быть выплачена в иностранной валюте, например, 500 евро. Налог всегда рассчитывается в злотых, поэтому зарплату сначала следует перевести в злотые по курсу валюты на день выплаты. Преобразования не обязательно должны быть фактическими и могут быть включены в исходный код.
+Расширение дополнительного сценария: Одна зарплата может быть выплачена сразу в нескольких валютах, например, 200 злотых + 300 евро + 250 долларов США. Как и выше, также переведите зарплату в злотые.
+
+
+Пример:
+Работник соглашается на прогрессивный налог в данном году.
+Первая зарплата в этом году - 5000 злотых. Она находится в пределах общего лимита 85528, поэтому применяется ставка 17%, что дает 850 злотых. Дополнительно уменьшенное на 525,12 злотых дает 324,88 злотых. Округленное в меньшую сторону дает 324 злотых.
+Следующая зарплата в этом году - 100 000 злотых. Учитывая предыдущую зарплату (5000 злотых), это 80528 злотых в пределах лимита 85528 (ставка 17%) и 19472 злотых сверх этого лимита (ставка 32%). Это дает 13689,76 + 6231,04 = 19920,80 Налоговый вычет в размере 525,12 уже был применен за год, поэтому остается только округлить итоговую цифру, что дает 19920 злотых.
