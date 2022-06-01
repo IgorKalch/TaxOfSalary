@@ -2,14 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace IKalchenko.TaxOfSalary.Persistence
 {
-     public interface IRepositiry
+     public interface IRepository
     {
-        List<ValueRecord> ValueRecords();
-
-        ValueRecord ValueRecordGet(List<ValueRecord> ValueRecords);
+        List<ValueRecord> ValueRecordGet();
         
     }
 }

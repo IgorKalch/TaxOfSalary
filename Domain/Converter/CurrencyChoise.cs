@@ -6,8 +6,8 @@ namespace IKalchenko.TaxOfSalary.Domain
 {
     public enum CurrencyChoise
     {
-        PLN = 0,
-        USD = 1,
-        EURO = 2
+        PLN = 1, 
+        USD = 2,
+        EURO = 3
     }
 }

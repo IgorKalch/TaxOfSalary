@@ -1,37 +1,32 @@
 ﻿using IKalchenko.TaxOfSalary.Domain;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace IKalchenko.TaxOfSalary.Persistence
 {
-    public class MemoryRepository : IRepositiry
+    public class MemoryRepository : IRepository
     {
         #region Fake Data
         private List<ValueRecord> valueRecords = new List<ValueRecord>()
         {
-            new ValueRecord(1000,(CurrencyChoise)0,"July"),
-            new ValueRecord(10000,(CurrencyChoise)0,100,(CurrencyChoise)1,"September"),
-            new ValueRecord(10000,(CurrencyChoise)0,100,(CurrencyChoise)1,100,(CurrencyChoise)2,"October")
-        }; 
+            new ValueRecord("January",1000,(CurrencyChoise)1),
+            new ValueRecord("February",1000,(CurrencyChoise)1),
+            new ValueRecord("March",1000,(CurrencyChoise)1),
+            new ValueRecord("April",100000,(CurrencyChoise)1),
+            new ValueRecord("May",10000,(CurrencyChoise)1,100,(CurrencyChoise)2),
+            new ValueRecord("June",10000,(CurrencyChoise)1,100,(CurrencyChoise)2),
+            new ValueRecord("July",10000,(CurrencyChoise)1,100,(CurrencyChoise)2),
+            new ValueRecord("August",10000,(CurrencyChoise)1,100,(CurrencyChoise)2,100,(CurrencyChoise)3),
+            new ValueRecord("September",100000,(CurrencyChoise)1,100,(CurrencyChoise)2,100,(CurrencyChoise)3)
+        };
         #endregion
 
-        public List<ValueRecord> ValueRecords()
-        {
-            return valueRecords;
-        }               
-
         public List<ValueRecord> ValueRecordGet()
-        {
-            
-            var records = new List<ValueRecord>();
-            foreach (var record in records)
-            {
-                records.Where(x => x.Value3 != 0).FirstOrDefault(new ValueRecord(record.Value1, record.Currency1, record.Value2, record.Currency2, record.Value3, record.Currency3, record.Message));
-                records.Where(x => x.Value2 != 0).FirstOrDefault(new ValueRecord(record.Value1, record.Currency1, record.Value2, record.Currency2, record.Message));
-                records.Where(x => x.Value1 != 0).FirstOrDefault(new ValueRecord(record.Value1, record.Currency1, record.Message));
-            }
-            
-        }           
+        {            
+            return valueRecords;
+        }
     }
 }
